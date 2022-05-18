@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  Cats with coordinator
+
+  Created by Mark Khmelnitskii on 18.05.2022.
+  
+*/
+
+//MARK: TabBar
+"Search" = "Поиск";
+"My offline cats" = "Сохраненные";
+
+//MARK: NavBar
+"Сat's observer" = "Поиск кошек";
+"Saved cat's" = "Сохраненные коты";
+
+//MARK: My offline cats view
+"Empty saved" = "Очистить сохраненные";
+"Empty" = "Пусто";
+"add first cat to saved" = "сохрани первого котика";
+
+//MARK: Error localized
+"Bad response from URL: \(url)" = "[🔧🔥] Плохой ответ от URL: \(url)";
+"Request error" = "[👔🔥] Ошибка запроса";
+"Input data error" = "[💔🔥] Ошибка входных данных";
+"Authorization problem" = "[🔐🔥] Ошибка авторизации";
+"Bad status code returned: \(statusCode)" = "[❌🔥] Возвращен неверный код состояния: \(statusCode)";
+"Server error" = "[🌎🔥] Ошибка сервера";
+"Unknown network error occured" = "[⚠️🔥] Неизвестная ошибка сети";
+"Unknown app error" = "Неизвестная ошибка приложения";

@@ -11,6 +11,18 @@
 		B489FF3F2834F3C800595703 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489FF3E2834F3C800595703 /* ContentView.swift */; };
 		B489FF412834F3CA00595703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B489FF402834F3CA00595703 /* Assets.xcassets */; };
 		B489FF442834F3CA00595703 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B489FF432834F3CA00595703 /* Preview Assets.xcassets */; };
+		B489FF502834F45600595703 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489FF4F2834F45600595703 /* String+localized.swift */; };
+		B489FF522834F46A00595703 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489FF512834F46A00595703 /* AppError.swift */; };
+		B489FF552834F55C00595703 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B489FF572834F55C00595703 /* Localizable.strings */; };
+		B489FF5A2834F6F500595703 /* Breedes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489FF592834F6F500595703 /* Breedes.swift */; };
+		B489FF5C2834F6FD00595703 /* Cats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489FF5B2834F6FD00595703 /* Cats.swift */; };
+		B489FF612834F76C00595703 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489FF602834F76C00595703 /* HTTPMethod.swift */; };
+		B489FF632834F78300595703 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489FF622834F78300595703 /* NetworkingError.swift */; };
+		B489FF652834F7A800595703 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489FF642834F7A800595703 /* APIService.swift */; };
+		B489FF672834F7EB00595703 /* APIMethodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489FF662834F7EB00595703 /* APIMethodService.swift */; };
+		B489FF692834F80200595703 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489FF682834F80200595703 /* APIRouter.swift */; };
+		B489FF6B2834F82000595703 /* APIRouter+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489FF6A2834F82000595703 /* APIRouter+Models.swift */; };
+		B489FF712834FF1500595703 /* Stinsen in Frameworks */ = {isa = PBXBuildFile; productRef = B489FF702834FF1500595703 /* Stinsen */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +31,18 @@
 		B489FF3E2834F3C800595703 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B489FF402834F3CA00595703 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B489FF432834F3CA00595703 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B489FF4F2834F45600595703 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
+		B489FF512834F46A00595703 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		B489FF562834F55C00595703 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B489FF582834F56C00595703 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B489FF592834F6F500595703 /* Breedes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Breedes.swift; sourceTree = "<group>"; };
+		B489FF5B2834F6FD00595703 /* Cats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cats.swift; sourceTree = "<group>"; };
+		B489FF602834F76C00595703 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		B489FF622834F78300595703 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		B489FF642834F7A800595703 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		B489FF662834F7EB00595703 /* APIMethodService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMethodService.swift; sourceTree = "<group>"; };
+		B489FF682834F80200595703 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		B489FF6A2834F82000595703 /* APIRouter+Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIRouter+Models.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B489FF712834FF1500595703 /* Stinsen in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,9 +76,10 @@
 		B489FF3B2834F3C800595703 /* Cats with coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				B489FF3C2834F3C800595703 /* Cats_with_coordinatorApp.swift */,
-				B489FF3E2834F3C800595703 /* ContentView.swift */,
-				B489FF402834F3CA00595703 /* Assets.xcassets */,
+				B489FF6E2834FE9100595703 /* Main */,
+				B489FF4D2834F40E00595703 /* Networking */,
+				B489FF4C2834F40100595703 /* Models */,
+				B489FF4A2834F3EF00595703 /* Core */,
 				B489FF422834F3CA00595703 /* Preview Content */,
 			);
 			path = "Cats with coordinator";
@@ -65,6 +91,80 @@
 				B489FF432834F3CA00595703 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B489FF4A2834F3EF00595703 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B489FF512834F46A00595703 /* AppError.swift */,
+				B489FF402834F3CA00595703 /* Assets.xcassets */,
+				B489FF572834F55C00595703 /* Localizable.strings */,
+				B489FF4E2834F43200595703 /* Extensions */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B489FF4C2834F40100595703 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B489FF592834F6F500595703 /* Breedes.swift */,
+				B489FF5B2834F6FD00595703 /* Cats.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B489FF4D2834F40E00595703 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B489FF5D2834F71600595703 /* APIRouter */,
+				B489FF5E2834F72400595703 /* APIService */,
+				B489FF5F2834F73500595703 /* Utils */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		B489FF4E2834F43200595703 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B489FF4F2834F45600595703 /* String+localized.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B489FF5D2834F71600595703 /* APIRouter */ = {
+			isa = PBXGroup;
+			children = (
+				B489FF682834F80200595703 /* APIRouter.swift */,
+				B489FF6A2834F82000595703 /* APIRouter+Models.swift */,
+			);
+			path = APIRouter;
+			sourceTree = "<group>";
+		};
+		B489FF5E2834F72400595703 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				B489FF642834F7A800595703 /* APIService.swift */,
+				B489FF662834F7EB00595703 /* APIMethodService.swift */,
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
+		B489FF5F2834F73500595703 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B489FF602834F76C00595703 /* HTTPMethod.swift */,
+				B489FF622834F78300595703 /* NetworkingError.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B489FF6E2834FE9100595703 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B489FF3C2834F3C800595703 /* Cats_with_coordinatorApp.swift */,
+				B489FF3E2834F3C800595703 /* ContentView.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +183,9 @@
 			dependencies = (
 			);
 			name = "Cats with coordinator";
+			packageProductDependencies = (
+				B489FF702834FF1500595703 /* Stinsen */,
+			);
 			productName = "Cats with coordinator";
 			productReference = B489FF392834F3C800595703 /* Cats with coordinator.app */;
 			productType = "com.apple.product-type.application";
@@ -108,9 +211,12 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				ru,
 			);
 			mainGroup = B489FF302834F3C800595703;
+			packageReferences = (
+				B489FF6F2834FF1500595703 /* XCRemoteSwiftPackageReference "stinsen" */,
+			);
 			productRefGroup = B489FF3A2834F3C800595703 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B489FF442834F3CA00595703 /* Preview Assets.xcassets in Resources */,
+				B489FF552834F55C00595703 /* Localizable.strings in Resources */,
 				B489FF412834F3CA00595703 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,12 +244,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B489FF522834F46A00595703 /* AppError.swift in Sources */,
+				B489FF672834F7EB00595703 /* APIMethodService.swift in Sources */,
 				B489FF3F2834F3C800595703 /* ContentView.swift in Sources */,
+				B489FF632834F78300595703 /* NetworkingError.swift in Sources */,
+				B489FF612834F76C00595703 /* HTTPMethod.swift in Sources */,
+				B489FF502834F45600595703 /* String+localized.swift in Sources */,
+				B489FF5A2834F6F500595703 /* Breedes.swift in Sources */,
+				B489FF692834F80200595703 /* APIRouter.swift in Sources */,
+				B489FF5C2834F6FD00595703 /* Cats.swift in Sources */,
+				B489FF652834F7A800595703 /* APIService.swift in Sources */,
 				B489FF3D2834F3C800595703 /* Cats_with_coordinatorApp.swift in Sources */,
+				B489FF6B2834F82000595703 /* APIRouter+Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B489FF572834F55C00595703 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B489FF562834F55C00595703 /* en */,
+				B489FF582834F56C00595703 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B489FF452834F3CA00595703 /* Debug */ = {
@@ -339,6 +468,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B489FF6F2834FF1500595703 /* XCRemoteSwiftPackageReference "stinsen" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rundfunk47/stinsen";
+			requirement = {
+				kind = exactVersion;
+				version = 2.0.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B489FF702834FF1500595703 /* Stinsen */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B489FF6F2834FF1500595703 /* XCRemoteSwiftPackageReference "stinsen" */;
+			productName = Stinsen;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B489FF312834F3C800595703 /* Project object */;
 }
