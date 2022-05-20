@@ -166,8 +166,8 @@
 		B489FF4D2834F40E00595703 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				B489FF5D2834F71600595703 /* APIRouter */,
 				B489FF5E2834F72400595703 /* APIService */,
+				B489FF5D2834F71600595703 /* APIRouter */,
 				B489FF5F2834F73500595703 /* Utils */,
 			);
 			path = Networking;

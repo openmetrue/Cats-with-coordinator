@@ -33,7 +33,7 @@ struct CatsMain: View {
                     }.id(UUID())
                 case .searchEmpty(let search):
                     List {
-                        Text("No results found for \(search)".localized)
+                        Text("No results found for \(search)")
                     }.listStyle(.inset)
                 case .all:
                     UIKitCollection(items: viewModel.cats, prefetchLimit: viewModel.restOfCellsBeforeFetch, loadMoreSubject: viewModel.loadMoreSubject, pullToRefreshSubject: viewModel.pullToRefreshSubject) { indexPath, item in

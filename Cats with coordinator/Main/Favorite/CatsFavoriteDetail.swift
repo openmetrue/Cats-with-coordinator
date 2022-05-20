@@ -23,7 +23,7 @@ struct CatsFavoriteDetail: View {
                 Text("Photo: \(cat.width)x\(cat.height)")
                 if let categories = cat.categoryDB,
                    categories != [] {
-                    Section(header: Text("Category".localized)) {
+                    Section(header: Text("Category")) {
                         ForEach(Array(categories as? Set<CategoryDB> ?? [])) { category in
                             Text(category.name!)
                         }
@@ -31,7 +31,7 @@ struct CatsFavoriteDetail: View {
                 }
                 if let breeds = cat.breedDB,
                    breeds != [] {
-                    Section(header: Text("Breed".localized)) {
+                    Section(header: Text("Breed")) {
                         ForEach(Array(breeds as? Set<BreedDB> ?? [])) { breed in
                             if let name = breed.name {
                                 Text("\(name)")

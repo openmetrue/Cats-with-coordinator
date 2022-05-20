@@ -18,8 +18,8 @@ struct CatsFavorite: View {
             switch viewModel.state {
             case .empty:
                 VStack {
-                    Text("Empty".localized)
-                    Text("add first cat to saved".localized)
+                    Text("Empty")
+                    Text("add first cat to saved")
                 }
             case .loaded(let catsDB):
                 UIKitCollection(items: catsDB) { indexPath, item in
@@ -37,7 +37,7 @@ struct CatsFavorite: View {
                     Button {
                         viewModel.deleteAll()
                     } label: {
-                        Text("Empty saved".localized)
+                        Text("Empty saved")
                     }
                 }
             case .error(let error):

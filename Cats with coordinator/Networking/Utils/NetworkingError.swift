@@ -14,19 +14,19 @@ enum NetworkingError: LocalizedError {
     var errorDescription: String {
         switch self {
         case .badURLResponse(let url):
-            return "Bad response from URL: \(url)".localized
+            return "Bad response from URL: \(url)"
         case .invalidRequest:
-            return "Request error".localized
+            return "Request error"
         case .errorInputData:
-            return "Input data error".localized
+            return "Input data error"
         case .authError:
-            return "Authorization problem".localized
+            return "Authorization problem"
         case .badStatusCode(let statusCode):
-            return "Bad status code returned: \(statusCode)".localized
+            return "Bad status code returned: \(statusCode)"
         case .serverError:
-            return "Server error".localized
+            return "Server error"
         case .unknown:
-            return "Unknown network error occured".localized
+            return "Unknown network error occured"
         }
     }
 }
