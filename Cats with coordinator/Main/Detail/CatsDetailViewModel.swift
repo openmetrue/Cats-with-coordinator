@@ -13,10 +13,10 @@ final class CatsDetailViewModel: ObservableObject {
     
     @Published private(set) var state: CatsDetailViewState = .loading
     @Published private(set) var saved: Bool = false
-    let networkService: APIService
     
     private var bag = Set<AnyCancellable>()
     
+    let networkService: APIService
     public init(networkService: APIService, cat: Cat) {
         self.networkService = networkService
         self.state = .loaded(cat)
@@ -34,7 +34,7 @@ final class CatsDetailViewModel: ObservableObject {
                 case .finished:
                     break
                 case .failure(let error):
-                    self.state = .error(error.localizedDescription)
+                    self.state = .error(error)
                 }
             }, receiveValue: {
                 self.state = .loaded($0)
@@ -42,6 +42,7 @@ final class CatsDetailViewModel: ObservableObject {
     }
     
     public func save(_ cat: Cat) {
+        saved = true
         let action: (() -> Void) = {
             let catDB: CatDB = CDAPI.createEntity()
             catDB.unicID = UUID()
@@ -77,12 +78,12 @@ final class CatsDetailViewModel: ObservableObject {
                 case .finished:
                     break
                 case .failure(let error):
-                    self.state = .error(error.localizedDescription)
+                    self.state = .error(error)
                 }
             } receiveValue: {
                 switch $0 {
                 case true:
-                    self.saved = true
+                    break
                 case false:
                     print("DB error")
                 }
@@ -90,7 +91,7 @@ final class CatsDetailViewModel: ObservableObject {
     }
     
     enum CatsDetailViewState {
-        case loading, loaded(Cat), error(String)
+        case loading, loaded(Cat), error(Error)
     }
 }
 

@@ -23,38 +23,36 @@ struct CatsDetail: View {
         switch viewModel.state {
         case .loaded(let cat):
             Group {
-                ZStack {
-                    VStack {
-                        AsyncImageCached(url: cat.url) { image in
-                            image.centerCropped()
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        List {
-                            Text("Cat's ID: \(cat.id)")
-                            Text("Photo: \(cat.width)x\(cat.height)")
-                            if let categories = cat.categories {
-                                Section(header: Text("Category")) {
-                                    ForEach(categories, id: \.id) { category in
-                                        Text(category.name)
-                                    }
-                                }
-                            }
-                            if let breeds = cat.breeds,
-                               breeds != [] {
-                                Section(header: Text("Breed")) {
-                                    ForEach(breeds, id: \.id) { breed in
-                                        if let name = breed.name {
-                                            Text("\(name)")
-                                        }
-                                        if let breedDescription = breed.breedDescription {
-                                            Text("\(breedDescription)")
-                                        }
-                                    }
-                                }
-                            }
-                        } .id(UUID())
+                VStack {
+                    AsyncImageCached(url: cat.url) { image in
+                        image.centerCropped()
+                    } placeholder: {
+                        ProgressView()
                     }
+                    List {
+                        Text("Cat's ID: \(cat.id)")
+                        Text("Photo: \(cat.width)x\(cat.height)")
+                        if let categories = cat.categories {
+                            Section(header: Text("Category")) {
+                                ForEach(categories, id: \.id) { category in
+                                    Text(category.name)
+                                }
+                            }
+                        }
+                        if let breeds = cat.breeds,
+                           breeds != [] {
+                            Section(header: Text("Breed")) {
+                                ForEach(breeds, id: \.id) { breed in
+                                    if let name = breed.name {
+                                        Text("\(name)")
+                                    }
+                                    if let breedDescription = breed.breedDescription {
+                                        Text("\(breedDescription)")
+                                    }
+                                }
+                            }
+                        }
+                    } .id(UUID())
                 }
             } .toolbar {
                 Button {
@@ -68,7 +66,7 @@ struct CatsDetail: View {
         case .loading:
             ProgressView()
         case .error(let error):
-            Text(error)
+            Text(error.localizedDescription)
         }
     }
 }

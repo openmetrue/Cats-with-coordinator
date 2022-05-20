@@ -41,14 +41,17 @@ extension CoreDataSaveModelPublisher.Subscription: Subscription, Cancellable {
     func request(_ demand: Subscribers.Demand) {
         guard let subscriber = subscriber, demand > 0 else { return }
         var demand = demand
-        do {
-            action()
-            demand -= 1
-            try context.save()
-            demand += subscriber.receive(true)
-        } catch {
-            subscriber.receive(completion: .failure(error as NSError))
+        DispatchQueue.global(qos: .userInteractive).async {
+            do {
+                self.action()
+                demand -= 1
+                try self.context.save()
+                demand += subscriber.receive(true)
+            } catch {
+                subscriber.receive(completion: .failure(error as NSError))
+            }
         }
+        
     }
     func cancel() {
         subscriber = nil
