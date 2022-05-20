@@ -29,11 +29,11 @@ extension APIRouter {
         }
     }
     private var path: String {
-        var path = "v1"
+        var path = "/v1/"
         switch self {
         case .getAllCats: path.append("images/search")
         case .searchCats: path.append("breeds/search")
-        case .getCatsFromID: path.append("images")
+        case .getCatsFromID: path.append("images/")
         }
         return path
     }

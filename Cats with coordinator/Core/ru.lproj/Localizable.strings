@@ -19,6 +19,11 @@
 "Empty" = "Пусто";
 "add first cat to saved" = "сохрани первого котика";
 
+//MARK: Cats observer view
+"Category" = "Категория";
+"Breed" = "Порода";
+"Save to offline" = "Сохранить в память";
+
 //MARK: Error localized
 "Bad response from URL: \(url)" = "[🔧🔥] Плохой ответ от URL: \(url)";
 "Request error" = "[👔🔥] Ошибка запроса";

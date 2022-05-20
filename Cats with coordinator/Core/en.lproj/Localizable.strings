@@ -19,6 +19,11 @@
 "Empty" = "Empty";
 "add first cat to saved" = "add first cat to saved";
 
+//MARK: Cats observer view
+"Category" = "Category";
+"Breed" = "Breed";
+"Save to offline" = "Save to offline";
+
 //MARK: Error localized
 "Bad response from URL: \(url)" = "[🔧🔥] Bad response from URL: \(url)";
 "Request error" = "[👔🔥] Request error";

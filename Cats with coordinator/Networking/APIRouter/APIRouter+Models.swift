@@ -19,7 +19,6 @@ extension APIRouter {
         public let mimeTypes: String
         public let limit: Int
         public let page: Int
-        
         var queryItems: [URLQueryItem] {[
                 buildQueryItem(name: "size", value: size),
                 buildQueryItem(name: "mime_types", value: mimeTypes),
@@ -33,7 +32,6 @@ extension APIRouter {
             return URLQueryItem(name: name, value: value)
         }
     }
-    
     public struct SearchCatsParameters {
         public init(_ query: String) {
             self.query = query
@@ -43,7 +41,6 @@ extension APIRouter {
             URLQueryItem(name: "q", value: query)
         ]}
     }
-    
     public struct GetCatsFromIDParameters {
         public init(_ id: String) {
             self.id = id

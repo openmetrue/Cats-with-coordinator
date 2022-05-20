@@ -14,10 +14,14 @@ public struct APIService {
     }
     public init() {}
     internal func run<T: Decodable>(_ urlRequest: URLRequest) -> AnyPublisher<T,Error> {
-        return manager.dataTaskPublisher(for: urlRequest)
+        manager.dataTaskPublisher(for: urlRequest)
             .tryMap({ try handleURLResponse(output: $0, url: urlRequest.url!)})
             .decode(type: T.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    internal func invalidRequest<T>() -> AnyPublisher<T, Error> {
+        Fail<T, Error>(error: NetworkingError.invalidRequest)
             .eraseToAnyPublisher()
     }
     private func handleURLResponse(output: URLSession.DataTaskPublisher.Output, url: URL) throws -> Data {
