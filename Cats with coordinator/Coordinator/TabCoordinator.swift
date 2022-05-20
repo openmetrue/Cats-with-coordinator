@@ -13,7 +13,7 @@ final class TabCoordinator: TabCoordinatable {
     lazy var child = TabChild(startingItems: [
         \TabCoordinator.cats,
          \TabCoordinator.favorite
-    ])
+    ], activeTab: 0)
     
     @Route(tabItem: makeCatsTab) var cats = makeCats
     @Route(tabItem: makeFavoriteTab) var favorite = makeFavorite

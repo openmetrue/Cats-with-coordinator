@@ -51,7 +51,6 @@ extension CoreDataSaveModelPublisher.Subscription: Subscription, Cancellable {
                 subscriber.receive(completion: .failure(error as NSError))
             }
         }
-        
     }
     func cancel() {
         subscriber = nil

@@ -83,7 +83,9 @@ final class CatsDetailViewModel: ObservableObject {
             } receiveValue: {
                 switch $0 {
                 case true:
-                    break
+                    DispatchQueue.main.async {
+                    NotificationCenter.default.post(name: NSNotification.Name("SuccessSaved"), object: nil)
+                    }
                 case false:
                     print("DB error")
                 }
