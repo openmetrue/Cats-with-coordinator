@@ -41,7 +41,7 @@ struct CatsFavorite: View {
                     }
                 }
             case .error(let error):
-                Text(error)
+                Text(error.localizedDescription)
             case .loading:
                 ProgressView()
             }

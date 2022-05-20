@@ -24,7 +24,7 @@ final class CatsFavoriteViewModel: ObservableObject {
                     if error.code == 0 {
                         self.state = .empty
                     } else {
-                        self.state = .error(error.localizedDescription)
+                        self.state = .error(error)
                     }
                 }
             } receiveValue: {
@@ -44,13 +44,13 @@ final class CatsFavoriteViewModel: ObservableObject {
                 case .finished:
                     break
                 case .failure(let error):
-                    self.state = .error(error.localizedDescription)
+                    self.state = .error(error)
                 }
             } receiveValue: { _ in
                 self.fetchCats()
             }.store(in: &bag)
     }
     enum CatsFavoriteViewState {
-        case empty, loading, loaded([CatDB]), error(String)
+        case empty, loading, loaded([CatDB]), error(Error)
     }
 }
