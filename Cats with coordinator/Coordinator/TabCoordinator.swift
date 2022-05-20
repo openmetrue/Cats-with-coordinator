@@ -39,7 +39,6 @@ final class TabCoordinator: TabCoordinatable {
             Image(systemName: "magnifyingglass")
             Text("Search")
         }
-        .foregroundColor(isActive ? .blue : .black)
     }
     
     @ViewBuilder func makeFavoriteTab(isActive: Bool) -> some View {
@@ -47,7 +46,6 @@ final class TabCoordinator: TabCoordinatable {
             Image(systemName: "heart")
             Text("My offline cats")
         }
-        .foregroundColor(isActive ? .blue : .black)
     }
 }
 

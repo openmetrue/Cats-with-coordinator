@@ -28,7 +28,11 @@ final class CatsFavoriteViewModel: ObservableObject {
                     }
                 }
             } receiveValue: {
-                self.state = .loaded($0)
+                if $0.isEmpty {
+                    self.state = .empty
+                } else {
+                    self.state = .loaded($0)
+                }
             }.store(in: &bag)
     }
     
