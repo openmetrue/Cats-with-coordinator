@@ -52,7 +52,7 @@ struct CatsMain: View {
                     .ignoresSafeArea(.keyboard, edges: .bottom)
                 case .error(let error):
                     Spacer()
-                    Text(error.localizedDescription)
+                    Text(error)
                     Spacer()
                 }
             }

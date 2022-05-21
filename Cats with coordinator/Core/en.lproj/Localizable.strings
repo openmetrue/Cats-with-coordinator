@@ -28,6 +28,7 @@
 "Bad response from URL: \(url)" = "[🔧🔥] Bad response from URL: \(url)";
 "Request error" = "[👔🔥] Request error";
 "Input data error" = "[💔🔥] Input data error";
+"Output data error" = "[💩🔥] Output data error";
 "Authorization problem" = "[🔐🔥] Authorization problem";
 "Bad status code returned: \(statusCode)" = "[❌🔥] Bad status code returned: \(statusCode)";
 "Server error" = "[🌎🔥] Server error";

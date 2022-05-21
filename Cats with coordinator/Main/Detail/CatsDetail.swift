@@ -66,7 +66,7 @@ struct CatsDetail: View {
         case .loading:
             ProgressView()
         case .error(let error):
-            Text(error.localizedDescription)
+            Text(error)
         }
     }
 }

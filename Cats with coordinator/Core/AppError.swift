@@ -9,7 +9,7 @@ import Foundation
 
 public enum AppError: LocalizedError {
     case unknown
-    public var errorDescription: String? {
+    public var errorDescription: String {
         switch self {
         case .unknown: return "Unknown app error".localized
         }

@@ -8,28 +8,35 @@
 import Foundation
 import Combine
 
+public struct Response<T> {
+    let value: T
+    let response: HTTPURLResponse
+}
+
 public struct APIService {
     var manager: URLSession {
         return URLSession.shared
     }
     public init() {}
-    internal func run<T: Decodable>(_ urlRequest: URLRequest) -> AnyPublisher<T,Error> {
+    internal func run<T: Decodable>(_ urlRequest: URLRequest) -> AnyPublisher<Response<T>, Error> {
         manager.dataTaskPublisher(for: urlRequest)
             .tryMap({ try handleURLResponse(output: $0, url: urlRequest.url!)})
-            .decode(type: T.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
-    internal func invalidRequest<T>() -> AnyPublisher<T, Error> {
-        Fail<T, Error>(error: NetworkingError.invalidRequest)
+    internal func invalidRequest<T>() -> AnyPublisher<Response<T>, Error> {
+        Fail<Response<T>, Error>(error: NetworkingError.invalidRequest)
             .eraseToAnyPublisher()
     }
-    private func handleURLResponse(output: URLSession.DataTaskPublisher.Output, url: URL) throws -> Data {
+    private func handleURLResponse<T: Decodable>(output: URLSession.DataTaskPublisher.Output, url: URL) throws -> Response<T> {
         guard let response = output.response as? HTTPURLResponse
         else { throw NetworkingError.badURLResponse(url) }
         switch response.statusCode {
         case 200...299:
-            return output.data
+            let decoder = JSONDecoder()
+            guard let value = try? decoder.decode(T.self, from: output.data)
+            else { throw NetworkingError.errorOutputData }
+            return Response(value: value, response: response)
         case 400:
             throw NetworkingError.errorInputData
         case 401:

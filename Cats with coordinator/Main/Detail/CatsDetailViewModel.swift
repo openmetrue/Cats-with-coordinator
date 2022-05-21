@@ -38,10 +38,13 @@ final class CatsDetailViewModel: ObservableObject {
                 case .finished:
                     break
                 case .failure(let error):
-                    self.state = .error(error)
+                    let error = error as? NetworkingError
+                    self.state = .error(
+                        error?.errorDescription.localized ??
+                        AppError.unknown.errorDescription.localized)
                 }
             }, receiveValue: {
-                self.state = .loaded($0)
+                self.state = .loaded($0.value)
             }).store(in: &bag)
     }
     
@@ -82,7 +85,7 @@ final class CatsDetailViewModel: ObservableObject {
                 case .finished:
                     break
                 case .failure(let error):
-                    self.state = .error(error)
+                    self.state = .error(error.localizedDescription)
                 }
             } receiveValue: {
                 switch $0 {
@@ -97,7 +100,7 @@ final class CatsDetailViewModel: ObservableObject {
     }
     
     enum CatsDetailViewState {
-        case loading, loaded(Cat), error(Error)
+        case loading, loaded(Cat), error(String)
     }
 }
 

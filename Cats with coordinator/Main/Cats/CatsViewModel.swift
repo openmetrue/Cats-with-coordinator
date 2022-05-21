@@ -52,27 +52,37 @@ final class CatsMainViewModel: ObservableObject {
     }
     public func refreshItems() {
         networkService.getAllCats(using: .init(page: page, limit: limit))
-            .catch { error -> AnyPublisher<[Cat], Never> in
-                let error = error as? LocalizedError
-                self.state = .error(error ?? AppError.unknown)
-                return .init(Just<[Cat]>([]))
-            }
             .sink {
-                self.cats = $0
+                switch $0 {
+                case .finished:
+                    break
+                case .failure(let error):
+                    let error = error as? NetworkingError
+                    self.state = .error(
+                        error?.errorDescription.localized ??
+                        AppError.unknown.errorDescription.localized)
+                }
+            } receiveValue: {
+                self.cats = $0.value
                 self.page = 0
             }
             .store(in: &bag)
     }
     public func getCatsSearch(_ searchText: String) {
         networkService.searchCats(using: .init(searchText))
-            .catch { error -> AnyPublisher<[Breedes], Never> in
-                let error = error as? LocalizedError
-                self.state = .error(error ?? AppError.unknown)
-                return .init(Just<[Breedes]>([]))
-            }
             .sink {
-                self.breeds = $0
-                if $0.isEmpty {
+                switch $0 {
+                case .finished:
+                    break
+                case .failure(let error):
+                    let error = error as? NetworkingError
+                    self.state = .error(
+                        error?.errorDescription.localized ??
+                        AppError.unknown.errorDescription.localized)
+                }
+            } receiveValue: {
+                self.breeds = $0.value
+                if $0.value.isEmpty {
                     self.state = .searchEmpty(searchText)
                 }
             }
@@ -80,18 +90,23 @@ final class CatsMainViewModel: ObservableObject {
     }
     public func fetchNextPageIfPossible() {
         networkService.getAllCats(using: .init(page: page, limit: limit))
-            .catch { error -> AnyPublisher<[Cat], Never> in
-                let error = error as? LocalizedError
-                self.state = .error(error ?? AppError.unknown)
-                return .init(Just<[Cat]>([]))
-            }
             .sink {
-                self.cats += $0
+                switch $0 {
+                case .finished:
+                    break
+                case .failure(let error):
+                    let error = error as? NetworkingError
+                    self.state = .error(
+                        error?.errorDescription.localized ??
+                        AppError.unknown.errorDescription.localized)
+                }
+            } receiveValue: {
+                self.cats += $0.value
                 self.page += 1
             }
             .store(in: &bag)
     }
     enum CatsMainViewState {
-        case loading, search, searchEmpty(String), all, error(LocalizedError)
+        case loading, search, searchEmpty(String), all, error(String)
     }
 }
