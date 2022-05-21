@@ -1,4 +1,3 @@
 # Cats-with-coordinator
 
-Project using Stinsen for routing in SwiftUI
-https://github.com/rundfunk47/stinsen
+Project using [Stinsen](https://github.com/rundfunk47/stinsen) for routing in SwiftUI
