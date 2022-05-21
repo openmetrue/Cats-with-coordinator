@@ -10,10 +10,11 @@ import CoreData
 import Combine
 
 final class CatsFavoriteViewModel: ObservableObject {
+    
     @Published private(set) var state: CatsFavoriteViewState = .loading
+    
     private let request = NSFetchRequest<CatDB>(entityName: "CatDB")
     private let requestDelete = NSFetchRequest<NSFetchRequestResult>(entityName: "CatDB")
-    private var bag = Set<AnyCancellable>()
     
     public let coreDataService: CoreDataService
     
@@ -21,6 +22,8 @@ final class CatsFavoriteViewModel: ObservableObject {
         self.coreDataService = coreDataService
         fetchCats()
     }
+    
+    private var bag = Set<AnyCancellable>()
     
     public func fetchCats() {
         coreDataService.publicher(fetch: request)

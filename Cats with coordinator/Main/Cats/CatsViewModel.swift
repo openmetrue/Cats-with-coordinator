@@ -15,13 +15,12 @@ final class CatsMainViewModel: ObservableObject {
     @Published private(set) var breeds: [Breedes] = []
     @Published var searchText = ""
     
-    public let restOfCellsBeforeFetch = 10
     private let limit = 40
     private var page = 0
     
+    public let restOfCellsBeforeFetch = 10
     public let pullToRefreshSubject = PassthroughSubject<Void, Never>()
     public let loadMoreSubject = PassthroughSubject<Void, Never>()
-    private var bag = Set<AnyCancellable>()
     
     public let networkService: APIMethodService
     public let coreDataService: CoreDataService
@@ -31,6 +30,8 @@ final class CatsMainViewModel: ObservableObject {
         self.coreDataService = coreDataService
         setUpFetching()
     }
+    
+    private var bag = Set<AnyCancellable>()
     
     private func setUpFetching() {
         $searchText

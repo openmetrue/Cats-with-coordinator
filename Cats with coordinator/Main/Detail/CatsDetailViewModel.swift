@@ -14,10 +14,9 @@ final class CatsDetailViewModel: ObservableObject {
     @Published private(set) var state: CatsDetailViewState = .loading
     @Published private(set) var saved: Bool = false
     
-    private var bag = Set<AnyCancellable>()
-    
     let networkService: APIMethodService
     let coreDataService: CoreDataService
+    
     public init(networkService: APIMethodService, coreDataService: CoreDataService, cat: Cat) {
         self.networkService = networkService
         self.coreDataService = coreDataService
@@ -29,6 +28,8 @@ final class CatsDetailViewModel: ObservableObject {
         self.coreDataService = coreDataService
         loadCat(id: breed.referenceImageID ?? "hBXicehMA")
     }
+    
+    private var bag = Set<AnyCancellable>()
     
     public func loadCat(id: String) {
         networkService.getCatsFromID(using: .init(id))
