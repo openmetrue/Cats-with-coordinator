@@ -24,9 +24,9 @@ final class CatsCoordinator: NavigationCoordinatable {
         CatsMain(viewModel: viewModel)
     }
     @ViewBuilder func makeCatDetails(for cat: Cat) -> some View {
-        CatsDetail(networkService: viewModel.networkService, cat: cat)
+        CatsDetail(networkService: viewModel.networkService, coreDataService: viewModel.coreDataService, cat: cat)
     }
     @ViewBuilder func makeBreedDetails(for breed: Breedes) -> some View {
-        CatsDetail(networkService: viewModel.networkService, breed: breed)
+        CatsDetail(networkService: viewModel.networkService, coreDataService: viewModel.coreDataService, breed: breed)
     }
 }

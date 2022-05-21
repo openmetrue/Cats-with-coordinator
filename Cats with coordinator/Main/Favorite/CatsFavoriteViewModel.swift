@@ -15,12 +15,15 @@ final class CatsFavoriteViewModel: ObservableObject {
     private let requestDelete = NSFetchRequest<NSFetchRequestResult>(entityName: "CatDB")
     private var bag = Set<AnyCancellable>()
     
-    init() {
+    public let coreDataService: CoreDataService
+    
+    init(coreDataService: CoreDataService) {
+        self.coreDataService = coreDataService
         fetchCats()
     }
     
     public func fetchCats() {
-        CDAPI.publicher(fetch: request)
+        coreDataService.publicher(fetch: request)
             .sink {
                 switch $0 {
                 case .finished:
@@ -42,7 +45,7 @@ final class CatsFavoriteViewModel: ObservableObject {
     }
     
     public func deleteAll() {
-        CDAPI.publicher(delete: requestDelete)
+        coreDataService.publicher(delete: requestDelete)
             .sink {
                 switch $0 {
                 case .finished:

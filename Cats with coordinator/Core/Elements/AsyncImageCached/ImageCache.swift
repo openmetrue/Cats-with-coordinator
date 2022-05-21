@@ -15,7 +15,7 @@ protocol ImageCache {
 struct TemporaryImageCache: ImageCache {
     private let cache: LRUCache<NSURL, Data> = {
         let cache = LRUCache<NSURL, Data>()
-        cache.countLimit = 100 // items limit
+        cache.countLimit = 50 // items limit
         cache.totalCostLimit = 1024 * 1024 * 256 // memory limit
         return cache
     }()

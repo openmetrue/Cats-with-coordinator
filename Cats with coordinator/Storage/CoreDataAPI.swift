@@ -8,23 +8,26 @@
 import CoreData
 import Combine
 
-enum CDAPI {
-    static private let coreDataStore = CoreDataStore(name: "Model")
+protocol CoreDataService {
+    func publicher<T: NSManagedObject>(fetch request: NSFetchRequest<T>) -> CoreDataFetchResultsPublisher<T>
+    func publicher(save action: @escaping () -> Void) -> CoreDataSaveModelPublisher
+    func publicher(delete request: NSFetchRequest<NSFetchRequestResult>) -> CoreDataDeleteModelPublisher
+    func createEntity<T: NSManagedObject>() -> T
 }
 
-extension CDAPI {
-    static func publicher<T: NSManagedObject>(fetch request: NSFetchRequest<T>) -> CoreDataFetchResultsPublisher<T> {
+extension CoreDataStore: CoreDataService {
+    public func publicher<T: NSManagedObject>(fetch request: NSFetchRequest<T>) -> CoreDataFetchResultsPublisher<T> {
         //request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         //request.predicate = NSPredicate(format: "%K == %@", "isCompleted", NSNumber(value: false))
-        return CoreDataFetchResultsPublisher(request: request, context: coreDataStore.viewContext)
+        return CoreDataFetchResultsPublisher(request: request, context: viewContext)
     }
-    static func publicher(save action: @escaping () -> Void) -> CoreDataSaveModelPublisher {
-        return CoreDataSaveModelPublisher(action: action, context: coreDataStore.viewContext)
+    public func publicher(save action: @escaping () -> Void) -> CoreDataSaveModelPublisher {
+        return CoreDataSaveModelPublisher(action: action, context: viewContext)
     }
-    static func publicher(delete request: NSFetchRequest<NSFetchRequestResult>) -> CoreDataDeleteModelPublisher {
-        return CoreDataDeleteModelPublisher(delete: request, context: coreDataStore.viewContext)
+    public func publicher(delete request: NSFetchRequest<NSFetchRequestResult>) -> CoreDataDeleteModelPublisher {
+        return CoreDataDeleteModelPublisher(delete: request, context: viewContext)
     }
-    static func createEntity<T: NSManagedObject>() -> T {
-        return T(context: coreDataStore.viewContext)
+    public func createEntity<T: NSManagedObject>() -> T {
+        return T(context: viewContext)
     }
 }

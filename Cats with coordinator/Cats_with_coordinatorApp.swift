@@ -14,12 +14,15 @@ struct Cats_with_coordinatorApp: App {
     let catsMainViewModel: CatsMainViewModel
     let catsFavoriteViewModel: CatsFavoriteViewModel
     
-    let networkService: APIService
+    let networkService: APIMethodService
+    let coreDataService: CoreDataService
     
     init() {
         self.networkService = APIService()
-        self.catsMainViewModel = CatsMainViewModel(networkService: networkService)
-        self.catsFavoriteViewModel = CatsFavoriteViewModel()
+        self.coreDataService = CoreDataStore(name: "Model")
+        
+        self.catsMainViewModel = CatsMainViewModel(networkService: networkService, coreDataService: coreDataService)
+        self.catsFavoriteViewModel = CatsFavoriteViewModel(coreDataService: coreDataService)
     }
     var body: some Scene {
         WindowGroup {

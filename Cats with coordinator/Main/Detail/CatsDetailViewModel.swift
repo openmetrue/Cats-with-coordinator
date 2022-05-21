@@ -16,14 +16,17 @@ final class CatsDetailViewModel: ObservableObject {
     
     private var bag = Set<AnyCancellable>()
     
-    let networkService: APIService
-    public init(networkService: APIService, cat: Cat) {
+    let networkService: APIMethodService
+    let coreDataService: CoreDataService
+    public init(networkService: APIMethodService, coreDataService: CoreDataService, cat: Cat) {
         self.networkService = networkService
+        self.coreDataService = coreDataService
         self.state = .loaded(cat)
     }
     
-    public init(networkService: APIService, breed: Breedes) {
+    public init(networkService: APIMethodService, coreDataService: CoreDataService, breed: Breedes) {
         self.networkService = networkService
+        self.coreDataService = coreDataService
         loadCat(id: breed.referenceImageID ?? "hBXicehMA")
     }
     
@@ -44,7 +47,7 @@ final class CatsDetailViewModel: ObservableObject {
     public func save(_ cat: Cat) {
         saved = true
         let action: (() -> Void) = {
-            let catDB: CatDB = CDAPI.createEntity()
+            let catDB: CatDB = self.coreDataService.createEntity()
             catDB.unicID = UUID()
             catDB.id = cat.id
             catDB.url = cat.url
@@ -53,7 +56,7 @@ final class CatsDetailViewModel: ObservableObject {
             catDB.image = try? Data(contentsOf: URL(string: cat.url)!)
             var breedsDB: [BreedDB] = []
             for breed in cat.breeds {
-                let breedDB: BreedDB = CDAPI.createEntity()
+                let breedDB: BreedDB = self.coreDataService.createEntity()
                 breedDB.id = breed.id
                 breedDB.name = breed.name
                 breedDB.breedDescription = breed.breedDescription
@@ -62,7 +65,7 @@ final class CatsDetailViewModel: ObservableObject {
             var categoriesDB: [CategoryDB] = []
             if let categories = cat.categories {
                 for category in categories {
-                    let categoryDB: CategoryDB = CDAPI.createEntity()
+                    let categoryDB: CategoryDB = self.coreDataService.createEntity()
                     categoryDB.id = Int64(category.id)
                     categoryDB.name = category.name
                     categoriesDB.append(categoryDB)
@@ -72,7 +75,7 @@ final class CatsDetailViewModel: ObservableObject {
             catDB.categoryDB = NSSet(array: categoriesDB)
         }
         
-        CDAPI.publicher(save: action)
+        coreDataService.publicher(save: action)
             .sink {
                 switch $0 {
                 case .finished:

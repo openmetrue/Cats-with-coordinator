@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-public protocol APIMethodService {
+protocol APIMethodService {
     func getAllCats(using model: APIRouter.GetAllCatsParameters) -> AnyPublisher<[Cat], Error>
     func searchCats(using model: APIRouter.SearchCatsParameters) -> AnyPublisher<[Breedes], Error>
     func getCatsFromID(using model: APIRouter.GetCatsFromIDParameters) -> AnyPublisher<Cat, Error>

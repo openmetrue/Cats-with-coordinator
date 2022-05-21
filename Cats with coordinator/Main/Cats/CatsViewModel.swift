@@ -23,10 +23,12 @@ final class CatsMainViewModel: ObservableObject {
     public let loadMoreSubject = PassthroughSubject<Void, Never>()
     private var bag = Set<AnyCancellable>()
     
-    public let networkService: APIService
+    public let networkService: APIMethodService
+    public let coreDataService: CoreDataService
     
-    init(networkService: APIService) {
+    init(networkService: APIMethodService, coreDataService: CoreDataService) {
         self.networkService = networkService
+        self.coreDataService = coreDataService
         setUpFetching()
     }
     

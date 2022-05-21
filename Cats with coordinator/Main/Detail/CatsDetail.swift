@@ -11,12 +11,12 @@ struct CatsDetail: View {
     
     @ObservedObject var viewModel: CatsDetailViewModel
     
-    public init(networkService: APIService, breed: Breedes) {
-        self.viewModel = CatsDetailViewModel(networkService: networkService, breed: breed)
+    public init(networkService: APIMethodService, coreDataService: CoreDataService, breed: Breedes) {
+        self.viewModel = CatsDetailViewModel(networkService: networkService, coreDataService: coreDataService, breed: breed)
     }
     
-    public init(networkService: APIService, cat: Cat) {
-        self.viewModel = CatsDetailViewModel(networkService: networkService, cat: cat)
+    public init(networkService: APIMethodService, coreDataService: CoreDataService, cat: Cat) {
+        self.viewModel = CatsDetailViewModel(networkService: networkService, coreDataService: coreDataService, cat: cat)
     }
     
     var body: some View {

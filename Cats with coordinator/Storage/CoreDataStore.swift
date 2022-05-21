@@ -9,7 +9,6 @@ import CoreData
 import Combine
 
 struct CoreDataStore {
-    
     var container: NSPersistentContainer
     var viewContext: NSManagedObjectContext {
         return self.container.viewContext
