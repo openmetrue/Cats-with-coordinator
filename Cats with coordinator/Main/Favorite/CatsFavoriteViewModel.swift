@@ -20,10 +20,17 @@ final class CatsFavoriteViewModel: ObservableObject {
     
     init(coreDataService: CoreDataService) {
         self.coreDataService = coreDataService
+        setupCoreDataNotification()
         fetchCats()
     }
     
     private var bag = Set<AnyCancellable>()
+    
+    public func setupCoreDataNotification() {
+        NotificationCenter.default.publisher(for: NSNotification.Name("SuccessSaved")).sink(receiveValue: { _ in
+            self.fetchCats()
+        }).store(in: &bag)
+    }
     
     public func fetchCats() {
         coreDataService.publicher(fetch: request)
@@ -32,11 +39,7 @@ final class CatsFavoriteViewModel: ObservableObject {
                 case .finished:
                     break
                 case .failure(let error):
-                    if error.code == 0 {
-                        self.state = .empty
-                    } else {
-                        self.state = .error(error)
-                    }
+                    self.state = .error(error)
                 }
             } receiveValue: {
                 if $0.isEmpty {

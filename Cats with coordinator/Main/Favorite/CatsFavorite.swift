@@ -46,10 +46,6 @@ struct CatsFavorite: View {
                 ProgressView()
             }
         }
-        //.onAppear { viewModel.fetchCats() }
-        .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("SuccessSaved"))) { _ in
-            self.viewModel.fetchCats()
-        }
         .navigationBarTitle("Saved cat's", displayMode: .inline)
     }
 }
