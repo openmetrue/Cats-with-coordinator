@@ -15,11 +15,11 @@ struct Cats_with_coordinatorApp: App {
     let catsFavoriteViewModel: CatsFavoriteViewModel
     
     let networkService: APIMethodService
-    let coreDataService: CoreDataService
+    let coreDataService: CoreDataMethodService
     
     init() {
         self.networkService = APIService()
-        self.coreDataService = CoreDataStore(name: "Model")
+        self.coreDataService = CoreDataService(name: "Model")
         
         self.catsMainViewModel = CatsMainViewModel(networkService: networkService, coreDataService: coreDataService)
         self.catsFavoriteViewModel = CatsFavoriteViewModel(coreDataService: coreDataService)

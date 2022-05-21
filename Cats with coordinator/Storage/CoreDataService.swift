@@ -1,5 +1,5 @@
 //
-//  CoreDataStore.swift
+//  CoreDataService.swift
 //  Cats
 //
 //  Created by Mark Khmelnitskii on 10.04.2022.
@@ -8,7 +8,7 @@
 import CoreData
 import Combine
 
-struct CoreDataStore {
+struct CoreDataService {
     var container: NSPersistentContainer
     var viewContext: NSManagedObjectContext {
         return self.container.viewContext

@@ -32,8 +32,8 @@
 		B489FFA22835045D00595703 /* AsyncImageCached.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489FF9D2835045D00595703 /* AsyncImageCached.swift */; };
 		B489FFA32835045D00595703 /* EnvironmentValues+ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489FF9E2835045D00595703 /* EnvironmentValues+ImageCache.swift */; };
 		B489FFA42835045D00595703 /* LRUCaching.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489FF9F2835045D00595703 /* LRUCaching.swift */; };
-		B489FFB02835046C00595703 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489FFA62835046C00595703 /* CoreDataStore.swift */; };
-		B489FFB12835046C00595703 /* CoreDataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489FFA72835046C00595703 /* CoreDataAPI.swift */; };
+		B489FFB02835046C00595703 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489FFA62835046C00595703 /* CoreDataService.swift */; };
+		B489FFB12835046C00595703 /* CoreDataMethodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489FFA72835046C00595703 /* CoreDataMethodService.swift */; };
 		B489FFB32835046C00595703 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B489FFAA2835046C00595703 /* Model.xcdatamodeld */; };
 		B489FFB42835046C00595703 /* CoreDataSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489FFAD2835046C00595703 /* CoreDataSave.swift */; };
 		B489FFB52835046C00595703 /* CoreDataFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B489FFAE2835046C00595703 /* CoreDataFetch.swift */; };
@@ -78,8 +78,8 @@
 		B489FF9D2835045D00595703 /* AsyncImageCached.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageCached.swift; sourceTree = "<group>"; };
 		B489FF9E2835045D00595703 /* EnvironmentValues+ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ImageCache.swift"; sourceTree = "<group>"; };
 		B489FF9F2835045D00595703 /* LRUCaching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LRUCaching.swift; sourceTree = "<group>"; };
-		B489FFA62835046C00595703 /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
-		B489FFA72835046C00595703 /* CoreDataAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataAPI.swift; sourceTree = "<group>"; };
+		B489FFA62835046C00595703 /* CoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		B489FFA72835046C00595703 /* CoreDataMethodService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataMethodService.swift; sourceTree = "<group>"; };
 		B489FFAB2835046C00595703 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B489FFAD2835046C00595703 /* CoreDataSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataSave.swift; sourceTree = "<group>"; };
 		B489FFAE2835046C00595703 /* CoreDataFetch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataFetch.swift; sourceTree = "<group>"; };
@@ -242,8 +242,8 @@
 		B489FFA52835046C00595703 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				B489FFA62835046C00595703 /* CoreDataStore.swift */,
-				B489FFA72835046C00595703 /* CoreDataAPI.swift */,
+				B489FFA62835046C00595703 /* CoreDataService.swift */,
+				B489FFA72835046C00595703 /* CoreDataMethodService.swift */,
 				B489FFAA2835046C00595703 /* Model.xcdatamodeld */,
 				B489FFAC2835046C00595703 /* CoreDataMethods */,
 			);
@@ -420,9 +420,9 @@
 				B489FFCA2835056A00595703 /* CatsDetailViewModel.swift in Sources */,
 				B489FF5C2834F6FD00595703 /* Cats.swift in Sources */,
 				B489FFB32835046C00595703 /* Model.xcdatamodeld in Sources */,
-				B489FFB12835046C00595703 /* CoreDataAPI.swift in Sources */,
+				B489FFB12835046C00595703 /* CoreDataMethodService.swift in Sources */,
 				B489FFA12835045D00595703 /* ImageLoader.swift in Sources */,
-				B489FFB02835046C00595703 /* CoreDataStore.swift in Sources */,
+				B489FFB02835046C00595703 /* CoreDataService.swift in Sources */,
 				B489FFBB2835047600595703 /* UIHostingIgnoreSafeArea.swift in Sources */,
 				B489FF652834F7A800595703 /* APIService.swift in Sources */,
 				B489FF3D2834F3C800595703 /* Cats_with_coordinatorApp.swift in Sources */,

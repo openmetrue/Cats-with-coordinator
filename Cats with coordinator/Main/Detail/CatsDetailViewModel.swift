@@ -15,15 +15,15 @@ final class CatsDetailViewModel: ObservableObject {
     @Published private(set) var saved: Bool = false
     
     let networkService: APIMethodService
-    let coreDataService: CoreDataService
+    let coreDataService: CoreDataMethodService
     
-    public init(networkService: APIMethodService, coreDataService: CoreDataService, cat: Cat) {
+    public init(networkService: APIMethodService, coreDataService: CoreDataMethodService, cat: Cat) {
         self.networkService = networkService
         self.coreDataService = coreDataService
         self.state = .loaded(cat)
     }
     
-    public init(networkService: APIMethodService, coreDataService: CoreDataService, breed: Breedes) {
+    public init(networkService: APIMethodService, coreDataService: CoreDataMethodService, breed: Breedes) {
         self.networkService = networkService
         self.coreDataService = coreDataService
         loadCat(id: breed.referenceImageID ?? "hBXicehMA")

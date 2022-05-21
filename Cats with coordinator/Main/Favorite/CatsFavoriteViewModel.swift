@@ -16,9 +16,9 @@ final class CatsFavoriteViewModel: ObservableObject {
     private let request = NSFetchRequest<CatDB>(entityName: "CatDB")
     private let requestDelete = NSFetchRequest<NSFetchRequestResult>(entityName: "CatDB")
     
-    public let coreDataService: CoreDataService
+    public let coreDataService: CoreDataMethodService
     
-    init(coreDataService: CoreDataService) {
+    init(coreDataService: CoreDataMethodService) {
         self.coreDataService = coreDataService
         setupCoreDataNotification()
         fetchCats()

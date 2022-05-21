@@ -1,5 +1,5 @@
 //
-//  CoreDataAPI.swift
+//  CoreDataMethodService.swift
 //  Cats
 //
 //  Created by Mark Khmelnitskii on 14.04.2022.
@@ -8,14 +8,14 @@
 import CoreData
 import Combine
 
-protocol CoreDataService {
+protocol CoreDataMethodService {
     func publicher<T: NSManagedObject>(fetch request: NSFetchRequest<T>) -> CoreDataFetchResultsPublisher<T>
     func publicher(save action: @escaping () -> Void) -> CoreDataSaveModelPublisher
     func publicher(delete request: NSFetchRequest<NSFetchRequestResult>) -> CoreDataDeleteModelPublisher
     func createEntity<T: NSManagedObject>() -> T
 }
 
-extension CoreDataStore: CoreDataService {
+extension CoreDataService: CoreDataMethodService {
     public func publicher<T: NSManagedObject>(fetch request: NSFetchRequest<T>) -> CoreDataFetchResultsPublisher<T> {
         //request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         //request.predicate = NSPredicate(format: "%K == %@", "isCompleted", NSNumber(value: false))

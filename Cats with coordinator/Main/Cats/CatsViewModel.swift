@@ -23,9 +23,9 @@ final class CatsMainViewModel: ObservableObject {
     public let loadMoreSubject = PassthroughSubject<Void, Never>()
     
     public let networkService: APIMethodService
-    public let coreDataService: CoreDataService
+    public let coreDataService: CoreDataMethodService
     
-    init(networkService: APIMethodService, coreDataService: CoreDataService) {
+    init(networkService: APIMethodService, coreDataService: CoreDataMethodService) {
         self.networkService = networkService
         self.coreDataService = coreDataService
         setUpFetching()
