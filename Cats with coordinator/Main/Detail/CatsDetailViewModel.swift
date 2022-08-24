@@ -59,12 +59,14 @@ final class CatsDetailViewModel: ObservableObject {
             catDB.height = Int64(cat.height)
             catDB.image = try? Data(contentsOf: URL(string: cat.url)!)
             var breedsDB: [BreedDB] = []
-            for breed in cat.breeds {
-                let breedDB: BreedDB = self.coreDataService.createEntity()
-                breedDB.id = breed.id
-                breedDB.name = breed.name
-                breedDB.breedDescription = breed.breedDescription
-                breedsDB.append(breedDB)
+            if let breeds = cat.breeds {
+                for breed in breeds {
+                    let breedDB: BreedDB = self.coreDataService.createEntity()
+                    breedDB.id = breed.id
+                    breedDB.name = breed.name
+                    breedDB.breedDescription = breed.breedDescription
+                    breedsDB.append(breedDB)
+                }
             }
             var categoriesDB: [CategoryDB] = []
             if let categories = cat.categories {
