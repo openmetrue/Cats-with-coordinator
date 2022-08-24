@@ -9,7 +9,7 @@ import Foundation
 
 public struct Cat: Codable, Equatable {
     var uuid = UUID()
-    let breeds: [Breed]
+    let breeds: [Breed]?
     let categories: [Category]?
     let id: String
     let url: String
